@@ -43,39 +43,29 @@
 // 	}
 	
 // }
-// Car Constructor
+
 function Car(make, model) {
     this.make = make;
     this.model = model;
 }
 
-// Add method to Car prototype
 Car.prototype.getMakeModel = function() {
     return `${this.make} ${this.model}`;
 };
 
-// SportsCar Constructor (inherits from Car)
 function SportsCar(make, model, topSpeed) {
-    Car.call(this, make, model); // Inherit Car properties
+    Car.call(this, make, model); 
     this.topSpeed = topSpeed;
 }
 
-// Inherit from Car's prototype
+
 SportsCar.prototype = Object.create(Car.prototype);
 SportsCar.prototype.constructor = SportsCar;
 
-// Add method to SportsCar prototype
+
 SportsCar.prototype.getTopSpeed = function() {
     return `Top Speed: ${this.topSpeed} mph`;
 };
-
-// Example usage:
-const car1 = new Car("Toyota", "Corolla");
-console.log(car1.getMakeModel()); // Output: Toyota Corolla
-
-const sportsCar1 = new SportsCar("Ferrari", "488 GTB", 211);
-console.log(sportsCar1.getMakeModel()); // Output: Ferrari 488 GTB
-console.log(sportsCar1.getTopSpeed());  // Output: Top Speed: 211 mph
 
 
 
